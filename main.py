@@ -5,7 +5,7 @@ from PIL import Image
 import numpy as np
 import tensorflow as tf
 import streamlit as st
-
+from streamlit import divider
 
 working_dir = os.path.dirname(os.path.abspath(__file__))
 model_path = f"{working_dir}/trained_model/plant_disease_prediction_model.h5"
@@ -60,3 +60,11 @@ if uploaded_image is not None:
             # Preprocess the uploaded image and predict the class
             prediction = predict_image_class(model, uploaded_image, class_indices)
             st.success(f'Prediction: {str(prediction)}')
+st.subheader("", divider= "red")
+st.subheader("Application Development (Deep Learning) IV-I ")
+st.markdown("Midhun Naga Sai. M -2111CS010283")
+st.markdown("Nagendra Kumar. J -2111CS010302")
+st.markdown("Debasish Nayak -2111CS010312")
+st.markdown("Partha Saradhi Reddy. C -2111CS010348")
+st.markdown("Nikhila. G -2111CS010323")
+
