@@ -60,6 +60,7 @@ if uploaded_image is not None:
             # Preprocess the uploaded image and predict the class
             prediction = predict_image_class(model, uploaded_image, class_indices)
             st.success(f'Prediction: {str(prediction)}')
+            
 st.subheader("", divider= "red")
 st.subheader("Application Development (Deep Learning) IV-I ")
 st.markdown("Midhun Naga Sai. M -2111CS010283")
