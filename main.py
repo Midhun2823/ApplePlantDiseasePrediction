@@ -6,12 +6,36 @@ import numpy as np
 import tensorflow as tf
 import streamlit as st
 from streamlit import divider
+import gdown
 
 working_dir = os.path.dirname(os.path.abspath(__file__))
-model_path = f"{working_dir}/trained_model/plant_disease_prediction_model.h5"
-# model_path = 'https://drive.google.com/file/d/1rKh-IElSdHTqax7XdfSdZTn-r8T_qWPf/view'
+
+# model_path = f"{working_dir}/trained_model/plant_disease_prediction_model.h5"
+
 # Load the pre-trained model
-model = tf.keras.models.load_model(model_path)
+# model = tf.keras.models.load_model(model_path)
+
+
+# https://drive.google.com/file/d/1FVVhqamVYyfNI3NBi7grVgy0sxMNFdg3/view?usp=sharing
+
+def download_model():
+    # Google Drive file ID
+    file_id = "1FVVhqamVYyfNI3NBi7grVgy0sxMNFdg3"
+    # The direct download link format for Google Drive
+    url = f"https://drive.google.com/uc?id={file_id}"
+    # Output file path
+    output = "plant_disease_prediction_model.h5"
+
+    if not os.path.exists(output):
+        gdown.download(url, output, quiet=False)
+
+# Call this function to download the model at runtime
+download_model()
+
+
+# Load the model
+model = tf.keras.models.load_model("plant_disease_prediction_model.h5")
+
 
 # loading the class names
 class_indices = json.load(open(f"{working_dir}/class_indices.json"))
