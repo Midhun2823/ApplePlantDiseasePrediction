@@ -83,7 +83,11 @@ if uploaded_image is not None:
         if st.button('Classify'):
             # Preprocess the uploaded image and predict the class
             prediction = predict_image_class(model, uploaded_image, class_indices)
-            st.success(f'Prediction: {str(prediction)}')
+            apple = prediction[:5] == "Apple"
+            if (apple):
+                st.success(f'Prediction: {str(prediction)}')
+            else:
+                st.error(f'It is not an Apple Leaf')
             
 st.subheader("", divider= "red")
 st.subheader("Application Development (Deep Learning) IV-I ")
